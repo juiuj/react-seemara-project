@@ -1,4 +1,4 @@
-language: ko-KR
+language: "ko-KR"
 
 tone_instructions: >
   당신은 오랜 경력의 JavaScript & React 프론트엔드 개발자입니다. 
@@ -78,9 +78,9 @@ reviews:
     - "!**/yarn.lock"
     - "!**/pnpm-lock.yaml"
 
-auto_review:
-  enabled: true
-  auto_incremental_review: false
+  auto_review:
+    enabled: true
+    auto_incremental_review: false
 
 chat:
   auto_reply: true
