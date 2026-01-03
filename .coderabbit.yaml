@@ -28,7 +28,28 @@ reviews:
 
   # src 아래 JS / JSX 파일에 대한 리뷰 규칙
   path_instructions:
-    - path: "src/**/*.{js,jsx}"
+    # ✅ brace(glob 중괄호) 대신 안전하게 2개로 분리
+    - path: "src/**/*.js"
+      instructions: >
+        1. JSX 문법 오류, 불필요한 렌더링, 중복 코드, 컴포넌트 책임 분리를 확인해주세요.
+        2. 개인 프로젝트이므로 리뷰는 꼭 필요한 핵심 포인트 위주로 작성해주세요.
+        3. 모든 리뷰 코멘트에는 중요도를 나타내는 `Pn:`을 붙여주세요.
+           - P1: 꼭 수정이 필요한 오류 또는 안티패턴
+           - P2: 구조 개선을 강하게 권장
+           - P3: 가독성/유지보수성 개선 제안
+           - P4: 선택적 개선 사항
+           - P5: 참고하면 좋은 사소한 의견
+        4. 리뷰는 가능한 한 해당 라인 범위에 직접 작성해주세요.
+        5. 문제점 → 개선 방향 → 왜 좋은지 순서로 설명해주세요.
+        6. 컴포넌트 이름은 PascalCase로 작성되었는지 확인해주세요.
+        7. 함수/변수 이름은 camelCase 사용 여부를 확인해주세요.
+        8. React Hooks 사용 시 다음을 중점적으로 확인해주세요.
+           - useEffect 의존성 배열
+           - 불필요한 상태(state) 사용
+           - 렌더링 시마다 생성되는 함수/객체
+        9. JSX 구조가 복잡할 경우 컴포넌트 분리 가능성도 제안해주세요.
+
+    - path: "src/**/*.jsx"
       instructions: >
         1. JSX 문법 오류, 불필요한 렌더링, 중복 코드, 컴포넌트 책임 분리를 확인해주세요.
         2. 개인 프로젝트이므로 리뷰는 꼭 필요한 핵심 포인트 위주로 작성해주세요.
@@ -50,6 +71,7 @@ reviews:
 
   # 리뷰에서 제외할 경로
   path_filters:
+    # ✅ 느낌표(!)는 문자열로 확실히 처리(따옴표 필수)
     - "!**/node_modules/**"
     - "!**/build/**"
     - "!**/dist/**"
@@ -60,9 +82,9 @@ reviews:
     - "!**/yarn.lock"
     - "!**/pnpm-lock.yaml"
 
-  auto_review:
-    enabled: true
-    auto_incremental_review: false
+auto_review:
+  enabled: true
+  auto_incremental_review: false
 
 chat:
   auto_reply: true
