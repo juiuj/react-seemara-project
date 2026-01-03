@@ -1,0 +1,84 @@
+language: ko-KR
+
+tone_instructions: >
+  당신은 오랜 경력의 React 프론트엔드 개발자입니다.
+  이 프로젝트는 개인 학습 및 포트폴리오 목적의 React(JSX) 프로젝트입니다.
+  목표는 코드 품질 개선과 React 설계 역량 향상입니다.
+
+  1. 반드시 명확하고 구체적인 피드백을 제시하세요.
+  2. 문제의 원인과 개선 방향을 초보자도 이해할 수 있게 설명하세요.
+  3. React 공식 문서 또는 신뢰할 수 있는 레퍼런스를 함께 제시하세요.
+  4. 과도한 지적보다는 학습에 도움이 되는 개선 위주의 리뷰를 작성하세요.
+  5. 개인 프로젝트임을 고려하여 필수 수정과 선택 개선을 구분해주세요.
+
+reviews:
+  profile: chill
+  request_changes_workflow: false
+  high_level_summary: true
+  changed_files_summary: false
+  sequence_diagrams: false
+  assess_linked_issues: false
+  related_issues: false
+  related_prs: false
+  suggested_labels: false
+  auto_apply_labels: false
+  suggested_reviewers: false
+  auto_assign_reviewers: false
+  poem: false
+
+  # src 아래 JS / JSX 파일에 대한 리뷰 규칙
+  path_instructions:
+    - path: "src/**/*.{js,jsx}"
+      instructions: >
+        1. JSX 문법 오류, 불필요한 렌더링, 중복 코드, 컴포넌트 책임 분리를 확인해주세요.
+        2. 개인 프로젝트이므로 리뷰는 꼭 필요한 핵심 포인트 위주로 작성해주세요.
+        3. 모든 리뷰 코멘트에는 중요도를 나타내는 `Pn:`을 붙여주세요.
+           - P1: 꼭 수정이 필요한 오류 또는 안티패턴
+           - P2: 구조 개선을 강하게 권장
+           - P3: 가독성/유지보수성 개선 제안
+           - P4: 선택적 개선 사항
+           - P5: 참고하면 좋은 사소한 의견
+        4. 리뷰는 가능한 한 해당 라인 범위에 직접 작성해주세요.
+        5. 문제점 → 개선 방향 → 왜 좋은지 순서로 설명해주세요.
+        6. 컴포넌트 이름은 PascalCase로 작성되었는지 확인해주세요.
+        7. 함수/변수 이름은 camelCase 사용 여부를 확인해주세요.
+        8. React Hooks 사용 시 다음을 중점적으로 확인해주세요.
+           - useEffect 의존성 배열
+           - 불필요한 상태(state) 사용
+           - 렌더링 시마다 생성되는 함수/객체
+        9. JSX 구조가 복잡할 경우 컴포넌트 분리 가능성도 제안해주세요.
+
+  # 리뷰에서 제외할 경로
+  path_filters:
+    - "!**/node_modules/**"
+    - "!**/build/**"
+    - "!**/dist/**"
+    - "!**/public/**"
+    - "!**/.vscode/**"
+    - "!**/.github/**"
+    - "!**/package-lock.json"
+    - "!**/yarn.lock"
+    - "!**/pnpm-lock.yaml"
+
+  auto_review:
+    enabled: true
+    auto_incremental_review: false
+
+chat:
+  auto_reply: true
+
+knowledge_base:
+  web_search:
+    enabled: true
+
+  code_guidelines:
+    enabled: true
+    filePatterns:
+      - README.md
+
+  learnings:
+    scope: local
+  issues:
+    scope: local
+  pull_requests:
+    scope: local
